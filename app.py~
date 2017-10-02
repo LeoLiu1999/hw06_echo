@@ -1,0 +1,17 @@
+from flask import Flask, render_template
+
+app = Flask(__name__)
+
+@app.route("/")
+def form():
+    print app
+    return render_template("form.html")
+
+@app.route("/result")
+def result():
+    print request.args
+    return render_template("result.html", request)
+
+if __name__ == "__main__":
+    app.debug = True
+    app.run()
