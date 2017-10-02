@@ -13,13 +13,16 @@ def form():
 
 @app.route("/result")
 def result():
-    args = request.args
-    form = request.form
-    print "request.args:"
-    print args
-    print "request.form:"
-    print form
-    return render_template("result.html", args = args, form = form)
+    if (request.method == GET):
+        args = request.args
+        print "request.form:"
+        print form
+        return render_template("result.html", inputs = form)
+    if (request.method == POST):
+        form = request.form
+        print "request.args:"
+        print args
+        return render_template("result.html", inputs = args)
 
 if __name__ == "__main__":
     app.debug = True
