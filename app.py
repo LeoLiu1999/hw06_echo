@@ -20,12 +20,8 @@ def result():
         inputs = request.form
         print "request.args:"
     print inputs
-    keys = []
-    values = []
-    for key in inputs:
-        keys.append(key)
-        values.append(inputs[key])
-    return render_template("result.html", keys = keys, values = values)
+    
+    return render_template("result.html", username = inputs['username'], password = inputs['password'])
 
 if __name__ == "__main__":
     app.debug = True
